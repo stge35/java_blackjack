@@ -7,19 +7,21 @@ public class CardDeckServiceImpl implements CardDeckService{
 
     private final CardRepository cardRepository;
 
+
     public CardDeckServiceImpl(CardRepository cardRepository) {
         this.cardRepository = cardRepository;
     }
 
     @Override
     public ArrayList<Card> shuffle() {
-        ArrayList<Card> cardDeck = cardRepository.save();
+        ArrayList<Card> cardDeck = cardRepository.create();
         Collections.shuffle(cardDeck);
         return cardDeck;
     }
 
     @Override
     public ArrayList<Card> raiseCard(ArrayList<Card> cards) {
+
         cards.remove(0);
         return cards;
     }

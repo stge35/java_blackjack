@@ -4,15 +4,14 @@ import java.util.ArrayList;
 
 public class TrumpCardRepository implements CardRepository{
 
-    String[] shapes = {"Spade", "Heart", "Diamond", "Clover"};
-    String[] numbers = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+    private final TrumpCard trumpCard = new TrumpCard();
     private final ArrayList<Card> deck = new ArrayList<Card>();
 
     @Override
-    public ArrayList<Card> save() {
-        for(int i = 0; i < shapes.length; i++) {
-            for(int j = 0; j < numbers.length; j++) {
-                deck.add(new Card(shapes[i], numbers[j]));
+    public ArrayList<Card> create() {
+        for(int i = 0; i < trumpCard.shapes.length; i++) {
+            for(int j = 0; j < trumpCard.numbers.length; j++) {
+                deck.add(new Card(trumpCard.shapes[i], trumpCard.numbers[j]));
             }
         }
         return deck;
